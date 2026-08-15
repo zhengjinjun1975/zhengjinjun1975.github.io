@@ -1,0 +1,9 @@
+# 构建产物(由GitHub Actions生成)
+public/
+.hugo_build.lock
+# 依赖
+node_modules/
+resources/
+# 系统
+.DS_Store
+Thumbs.db

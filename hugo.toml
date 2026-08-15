@@ -1,0 +1,27 @@
+baseURL = "https://zhengjinjun1975.github.io/"
+languageCode = "zh-cn"
+title = "AI驱动数字化转型"
+theme = "PaperMod"
+
+[params]
+  description = "AI驱动数字化转型：本体、知识图谱与智能制造的方法论与实践。郑金军出品。"
+  author = "郑金军"
+  keywords = ["AI", "数字化转型", "本体建模", "知识图谱", "智能制造", "中小企业AI"]
+  showReadingTime = true
+  showToc = true
+
+  [params.homeInfoParams]
+    Title = "AI驱动数字化转型"
+    Content = "把 AI 落进工厂的方法论与实践——从本体、记忆到智能体的认知侧工程。"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/zhengjinjun1975"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON", "SITEMAP"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+
+[permalinks]
+  posts = "/:year/:month/:slug/"
