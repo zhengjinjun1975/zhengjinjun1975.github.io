@@ -9,10 +9,16 @@ theme = "PaperMod"
   keywords = ["AI", "数字化转型", "本体建模", "知识图谱", "智能制造", "中小企业AI"]
   showReadingTime = true
   showToc = true
+  # 关键: 首页文章列表源(posts目录)
+  mainSections = ["posts"]
+  # 首页显示摘要
+  showSummary = true
+  # 首页文章标题下显示meta
+  ShowPostNavLinks = true
 
   [params.homeInfoParams]
     Title = "AI驱动数字化转型"
-    Content = "把 AI 落进工厂的方法论与实践——从本体、记忆到智能体的认知侧工程。"
+    Content = "把 AI 落进工厂的方法论与实践，从本体、记忆到智能体的认知侧工程。"
 
   [[params.socialIcons]]
     name = "github"
