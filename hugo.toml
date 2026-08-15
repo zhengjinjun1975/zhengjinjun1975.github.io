@@ -9,6 +9,8 @@ theme = "PaperMod"
   keywords = ["AI", "数字化转型", "本体建模", "知识图谱", "智能制造", "中小企业AI"]
   showReadingTime = true
   showToc = true
+  # 禁用 PaperMod 主题的暗黑/亮色切换按钮(月亮太阳)
+  disableThemeToggle = true
   # 关键: 首页文章列表源(posts目录)
   mainSections = ["posts"]
   # 首页显示摘要
