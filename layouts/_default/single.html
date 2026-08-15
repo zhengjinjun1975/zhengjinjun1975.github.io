@@ -1,0 +1,88 @@
+{{ define "main" }}
+<style>
+:root{--bg-page:#f6f8fb;--bg-card:#ffffff;--text-primary:#17181a;--text-secondary:#5d6673;--text-muted:#98a2b3;--border:#e5e8ec;--brand:#0D9488;--brand-dark:#0f766e;--accent:#7C3AED;--radius-md:12px;--shadow:0 4px 20px rgba(16,24,40,.08);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;background:var(--bg-page);color:var(--text-primary);line-height:1.75;-webkit-font-smoothing:antialiased;}
+.single-main{min-height:100vh;display:flex;flex-direction:column;}
+.top-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:820px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+.brand{font-size:1.15em;font-weight:700;color:var(--text-primary);text-decoration:none;}
+.brand:hover{color:var(--brand);}
+.nav-links a{color:var(--text-secondary);text-decoration:none;margin-left:20px;font-size:.93em;transition:color .2s;}
+.nav-links a:hover{color:var(--brand);}
+.article-wrap{max-width:760px;margin:0 auto;padding:40px 24px;width:100%;}
+.article-head{margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--border);}
+.article-title{font-size:1.9em;font-weight:700;color:var(--text-primary);line-height:1.4;margin-bottom:12px;}
+.article-meta{display:flex;align-items:center;gap:14px;color:var(--text-muted);font-size:.85em;flex-wrap:wrap;}
+.article-meta time{color:var(--text-muted);}
+.article-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.article-tags .tag{background:#f0fdfa;color:var(--brand);border-radius:4px;padding:2px 8px;font-size:.75em;}
+.article-body{color:var(--text-primary);font-size:1.02em;line-height:1.9;}
+.article-body h2{font-size:1.4em;color:var(--text-primary);margin:32px 0 14px;padding-left:12px;position:relative;}
+.article-body h2::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:4px;height:1.1em;background:linear-gradient(var(--brand),var(--accent));border-radius:3px;}
+.article-body h3{font-size:1.2em;color:var(--text-primary);margin:24px 0 10px;}
+.article-body p{margin-bottom:16px;color:#2d3439;}
+.article-body strong{color:var(--text-primary);}
+.article-body ul,.article-body ol{margin:0 0 16px 24px;}
+.article-body li{margin-bottom:8px;}
+.article-body a{color:var(--brand-dark);}
+.article-body blockquote{border-left:3px solid var(--brand);background:#f0fdfa;padding:12px 18px;margin:16px 0;border-radius:0 8px 8px 0;color:var(--text-secondary);}
+.article-body code{background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:.9em;}
+.article-body pre{background:#0f172a;color:#e2e8f0;padding:18px;border-radius:10px;overflow-x:auto;margin:16px 0;font-size:.9em;}
+.article-body pre code{background:none;padding:0;color:inherit;}
+.article-foot{margin-top:36px;padding-top:20px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85em;}
+.article-nav{display:flex;justify-content:space-between;margin-top:24px;gap:16px;}
+.article-nav a{color:var(--brand);text-decoration:none;font-size:.9em;transition:color .2s;}
+.article-nav a:hover{color:var(--brand-dark);}
+.site-footer{text-align:center;padding:36px 24px 28px;color:var(--text-muted);font-size:.85em;margin-top:auto;}
+.site-footer .footer-sub{color:var(--brand);font-size:.92em;margin-top:6px;font-weight:500;}
+@media(max-width:600px){.article-title{font-size:1.5em;}.article-wrap{padding:24px 18px;}}
+</style>
+<main class="single-main">
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">AI驱动数字化转型</a>
+      <div class="nav-links">
+        <a href="/">首页</a>
+        <a href="https://github.com/zhengjinjun1975" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <article class="article-wrap">
+    <header class="article-head">
+      <h1 class="article-title">{{ .Title }}</h1>
+      <div class="article-meta">
+        <time>{{ .Date.Format "2006年01月02日" }}</time>
+        <span>·</span>
+        <span>AI驱动数字化转型</span>
+        <div class="article-tags">
+          {{ range .Params.tags }}
+          <span class="tag">#{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+    </header>
+
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+
+    <footer class="article-foot">
+      <div class="article-nav">
+        {{ with .PrevInSection }}
+        <a href="{{ .Permalink }}">← {{ .Title }}</a>
+        {{ end }}
+        {{ with .NextInSection }}
+        <a href="{{ .Permalink }}">{{ .Title }} →</a>
+        {{ end }}
+      </div>
+    </footer>
+  </article>
+
+  <footer class="site-footer">
+    <p>AI驱动数字化转型 · 郑金军 · 本体、知识图谱与智能制造</p>
+    <p class="footer-sub">把 AI 用起来，把厂子做稳</p>
+  </footer>
+</main>
+{{ end }}
