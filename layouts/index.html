@@ -1,0 +1,31 @@
+{{ define "main" }}
+<main class="main home-main" style="max-width:820px;margin:0 auto;padding:40px 20px;">
+  <header style="text-align:center;margin-bottom:40px;">
+    <h1 style="font-size:2.2em;color:#17181a;margin-bottom:8px;">AI驱动数字化转型</h1>
+    <p style="color:#5d6673;font-size:1.05em;">把 AI 落进工厂的方法论与实践，从本体、记忆到智能体的认知侧工程。</p>
+  </header>
+
+  <section style="margin-bottom:30px;">
+    <h2 style="font-size:1.5em;color:#0D9488;border-bottom:2px solid #0D9488;padding-bottom:8px;">最新文章</h2>
+  </section>
+
+  <div class="post-list">
+    {{ range where .Site.RegularPages "Type" "in" site.Params.mainSections }}
+    <article style="background:#fff;border:1px solid #e5e8ec;border-radius:10px;padding:22px;margin-bottom:18px;">
+      <h3 style="margin:0 0 10px;font-size:1.25em;">
+        <a href="{{ .Permalink }}" style="color:#17181a;text-decoration:none;">{{ .Title }}</a>
+      </h3>
+      <time style="color:#98a2b3;font-size:0.85em;">{{ .Date.Format "2006-01-02" }}</time>
+      {{ if .Summary }}
+      <p style="color:#5d6673;margin-top:8px;font-size:0.95em;line-height:1.6;">{{ .Summary }}</p>
+      {{ end }}
+      <div style="margin-top:12px;">
+        {{ range .Params.tags }}
+        <span style="background:#f0fdfa;color:#0D9488;border-radius:4px;padding:2px 8px;font-size:0.8em;margin-right:6px;">#{{ . }}</span>
+        {{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</main>
+{{ end }}
