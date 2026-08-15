@@ -6,7 +6,7 @@ body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;backgroun
 .list-main{min-height:100vh;display:flex;flex-direction:column;}
 .top-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
 .nav-inner{max-width:900px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
-.brand{font-size:1.2em;font-weight:700;color:var(--text-primary);text-decoration:none;}
+.brand{font-size:1.2em;font-weight:800;color:var(--text-primary);text-decoration:none;display:inline-flex;align-items:center;gap:9px;letter-spacing:.3px;}.brand-mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#0D9488,#7C3AED);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0;box-shadow:0 2px 8px rgba(13,148,136,.25);}.brand-text{background:linear-gradient(135deg,#0D9488,#7C3AED);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;}
 .brand:hover{color:var(--brand);}
 .nav-links a{color:var(--text-secondary);text-decoration:none;margin-left:20px;font-size:.93em;transition:color .2s;}
 .nav-links a:hover{color:var(--brand);}
@@ -31,7 +31,7 @@ body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;backgroun
 <main class="list-main">
   <nav class="top-nav">
     <div class="nav-inner">
-      <a class="brand" href="/">AI驱动数字化转型</a>
+      <a class="brand" href="/"><span class="brand-mark">AI</span><span class="brand-text">AI驱动数字化转型</span></a>
       <div class="nav-links">
         <a href="/">首页</a>
         <a href="/posts/">文章</a>
