@@ -1,0 +1,56 @@
+{{ define "main" }}
+<style>
+:root{--bg-page:#f6f8fb;--bg-card:#ffffff;--text-primary:#17181a;--text-secondary:#5d6673;--text-muted:#98a2b3;--border:#e5e8ec;--brand:#0D9488;--brand-dark:#0f766e;--accent:#7C3AED;--radius-md:12px;--shadow:0 4px 20px rgba(16,24,40,.08);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;background:var(--bg-page);color:var(--text-primary);line-height:1.7;-webkit-font-smoothing:antialiased;}
+.list-main{min-height:100vh;display:flex;flex-direction:column;}
+.top-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:900px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+.brand{font-size:1.2em;font-weight:700;color:var(--text-primary);text-decoration:none;}
+.brand:hover{color:var(--brand);}
+.nav-links a{color:var(--text-secondary);text-decoration:none;margin-left:20px;font-size:.93em;transition:color .2s;}
+.nav-links a:hover{color:var(--brand);}
+.page-wrap{max-width:760px;margin:0 auto;padding:40px 24px;width:100%;}
+.page-title{font-size:1.7em;font-weight:700;color:var(--text-primary);margin-bottom:24px;position:relative;padding-left:14px;}
+.page-title::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:5px;height:1.1em;background:linear-gradient(var(--brand),var(--accent));border-radius:3px;}
+.post-list{display:flex;flex-direction:column;gap:14px;}
+.post-card{display:flex;justify-content:space-between;align-items:flex-start;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:18px 20px;text-decoration:none;color:inherit;transition:all .25s;position:relative;overflow:hidden;}
+.post-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--brand),var(--accent));opacity:0;transition:opacity .25s;}
+.post-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:transparent;}
+.post-card:hover::before{opacity:1;}
+.post-meta time{color:var(--text-muted);font-size:.8em;}
+.post-title{font-size:1.15em;color:var(--text-primary);margin:4px 0 6px;line-height:1.4;}
+.post-card:hover .post-title{color:var(--brand-dark);}
+.site-footer{text-align:center;padding:36px 24px 28px;color:var(--text-muted);font-size:.85em;margin-top:auto;}
+.site-footer .footer-sub{color:var(--brand);font-size:.92em;margin-top:6px;font-weight:500;}
+@media(max-width:600px){.nav-inner{padding:12px 16px;}.page-wrap{padding:24px 16px;}}
+</style>
+<main class="list-main">
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">AI驱动数字化转型</a>
+      <div class="nav-links">
+        <a href="/">首页</a>
+        <a href="/posts/">文章</a>
+        <a href="/tags/">标签</a>
+        <a href="/about/">关于</a>
+      </div>
+    </div>
+  </nav>
+  <div class="page-wrap">
+    <h1 class="page-title">#{{ .Title }}</h1>
+    <div class="post-list">
+      {{ range .Pages }}
+      <a class="post-card" href="{{ .Permalink }}">
+        <div class="post-meta"><time>{{ .Date.Format "2006年01月02日" }}</time></div>
+        <h3 class="post-title">{{ .Title }}</h3>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+  <footer class="site-footer">
+    <p>AI驱动数字化转型 · 郑金军 · 本体、知识图谱与智能制造</p>
+    <p class="footer-sub">把 AI 用起来，把厂子做稳</p>
+  </footer>
+</main>
+{{ end }}
