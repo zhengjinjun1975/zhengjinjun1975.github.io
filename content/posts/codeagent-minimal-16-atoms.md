@@ -1,6 +1,8 @@
 ---
 title: "开源一个代码智能体：16 个原子拼出越用越聪明的代码审查 Agent，零依赖、可改、能接自己框架"
+slug: codeagent-minimal-16-atoms
 date: 2026-08-18
+publishDate: 2026-08-18T00:00:00+08:00
 draft: false
 summary: "代码审查的智能体很多，但多数几十兆依赖、云端模型慢、本地数据不敢送出去。这个反着来：纯 Python 标准库零依赖，把 Agent 拆成 16 个原子再拼回来，审查、测试、依赖扫描、自进化全有，还能接进 LangChain、CrewAI。开源，门是开着的。"
 tags: ["代码智能体", "codeagent", "开源", "代码审查", "Agent", "零依赖"]
