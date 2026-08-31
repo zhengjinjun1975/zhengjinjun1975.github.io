@@ -1,6 +1,7 @@
 ---
 title: '它把每次漏网都记成脚印，走久就摸清了人话的门道，一个递归式进步的开源写作工具'
 date: 2026-09-01
+publishDate: 2026-09-01T00:00:00+08:00
 draft: false
 summary: '一个会自己进步的开源中文写作把关工具：规则外置 + writing_evolve 四步递归式进步（probe/scan/patch/converge），纯标准库零依赖。'
 tags: ["写作工具", "开源", "AI味", "递归式进步", "zh-writing-checker"]
