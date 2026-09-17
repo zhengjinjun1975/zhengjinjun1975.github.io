@@ -36,7 +36,8 @@ body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;backgroun
   </nav>
   <div class="page-wrap">
     <h1 class="page-title">归档</h1>
-    {{ range .Pages.GroupByDate "2006" }}
+    {{/* 归档页需列全站文章：文章都在 /posts/ 下，本页自身没有子页，故取 mainSections 的文章 */}}
+    {{ range (where .Site.RegularPages "Section" "in" .Site.Params.mainSections).GroupByDate "2006" }}
     <h2 class="archive-year">{{ .Key }} 年</h2>
     <div class="archive-list">
       {{ range .Pages }}

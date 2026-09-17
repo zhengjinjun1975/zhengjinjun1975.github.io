@@ -1,0 +1,12 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {{- /* 全站可抓取页面：首页、全部文章、文章列表、标签、归档等 */ -}}
+  {{- range .Site.Pages }}
+  {{- if not (in (slice "404" "sitemap" "RSS") .Kind) }}
+  <url>
+    <loc>{{ .Permalink }}</loc>{{ if not .Lastmod.IsZero }}
+    <lastmod>{{ .Lastmod.Format "2006-01-02" }}</lastmod>{{ end }}
+  </url>
+  {{- end }}
+  {{- end }}
+</urlset>
